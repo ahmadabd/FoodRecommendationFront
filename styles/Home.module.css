@@ -4,3 +4,8 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.foods {
+  margin: 10px;
+  text-align: center;
+}
