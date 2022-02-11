@@ -15,11 +15,11 @@ interface FoodProps {
 }
 
 
-const Home: NextPage<FoodProps> = ({foods}) => {  
+const Home: NextPage<FoodProps> = ({foods = []}) => {  
   return (
-    <div className={styles.container}>
+    <>
       <h2>All Foods</h2>
-      <div className={styles.foods}>
+      <div>
         <table className={styles.table}>
           <tr className={styles.tr}>
             <th className={styles.th}>Name</th>
@@ -30,7 +30,7 @@ const Home: NextPage<FoodProps> = ({foods}) => {
           {listFoods(foods)}
         </table>
       </div>
-    </div>
+    </>
   )
 }
 
@@ -48,8 +48,8 @@ const listFoods = (foods: FoodType[]) => {
 }
 
 export const getStaticProps = async () => {
-  const response = await fetch('http://localhost:5000/api/food/all')
-  const data = await response.json()
+  const response = await fetch('http://localhost:5000/api/food/all');
+  const data = await response.json();
  
   return {
     props: {
@@ -58,4 +58,4 @@ export const getStaticProps = async () => {
   }
 }
 
-export default Home
+export default Home;

@@ -10,7 +10,9 @@ const Layout = ({children} : any ) => {
             <Nav />
             <div className={styles.main}>    
                 <Header />
+                <div className={styles.container}>
                 {children}
+                </div>
             </div>
         </>
     );

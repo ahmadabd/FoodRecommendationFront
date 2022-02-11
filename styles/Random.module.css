@@ -1,0 +1,7 @@
+.container {
+    border: 1px solid #ccc;
+    background-color: aliceblue;
+    border-radius: 5px;
+    margin: 30px;
+    text-align: center;
+}
