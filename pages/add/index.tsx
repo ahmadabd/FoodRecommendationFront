@@ -2,16 +2,21 @@ import { useState } from "react";
 import styles from "../../styles/Add.module.css";
 
 const Add = () => {
-    const [name, setName] = useState("");
-    const [city, setCity] = useState("");
-    const [country, setCountry] = useState("");
-    const [vegetarian, setVegetarian] = useState("");
+    const [name, setName] = useState<string>();
+    const [city, setCity] = useState<string>();
+    const [country, setCountry] = useState<string>();
+    const [vegetarian, setVegetarian] = useState<string>();
 
     const storeData = async (
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         event.preventDefault();
         event.stopPropagation();
+
+        if (!(name && city && country && vegetarian)) {
+            alert("Empty Fields")
+            return
+        }
 
         const res = await fetch("http://localhost:5000/api/food", {
             method: "POST",
@@ -69,9 +74,10 @@ const Add = () => {
                             id="vegeterian"
                             name="vegeterian"
                             value={vegetarian}
+                            defaultValue="vegeterian"
                             onChange={(e) => setVegetarian(e.target.value)}
                         >
-                            <option value="vegetarian" selected>
+                            <option value="vegetarian">
                                 vegetarian
                             </option>
                             <option value="non-vegetarian">
