@@ -7,7 +7,7 @@ interface MetaProps {
     keywords: string;
 }
 
-const Meta: NextPage<MetaProps> = ({title, description, keywords}) => {
+const Meta: NextPage<MetaProps> = ({ title, description, keywords }) => {
     return (
         <Head>
             <title>{title}</title>
@@ -16,12 +16,12 @@ const Meta: NextPage<MetaProps> = ({title, description, keywords}) => {
             <meta charSet="utf-8" />
         </Head>
     );
-}
+};
 
 Meta.defaultProps = {
     title: "Food Recommendation",
     description: "Get Food Recommendation when you are hungry",
-    keywords: "food, recommendation, hungry"
-}
+    keywords: "food, recommendation, hungry",
+};
 
 export default Meta;
